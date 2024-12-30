@@ -9,12 +9,12 @@ from array import array # this imports only the array class from array module so
 #         sum+=arr[i]
 #     return sum
 
-# def array_upto_n(l):
-#     lis= []
-#     for i in range(1,l+1):
-#         lis.append(i)
-#     arr = array('i',lis)
-#     return arr
+def array_upto_n(l):
+    lis= []
+    for i in range(1,l+1):
+        lis.append(i)
+    arr = array('i',lis)
+    return arr
 
 
 ##1.1 Method with NumPy array
@@ -44,7 +44,23 @@ def largest_element(arr):
             max=arr[i]
     return max
 
-l= int(input("Enter length of array: "))
-arr = create_array(l)
-print(arr)
-print(largest_element(arr))
+# l= int(input("Enter length of array: "))
+
+##3 Array Rotation to the left
+l=int(input("Enter length of array: "))
+arr = array_upto_n(l)
+elements_to_shift = len(arr)-1
+
+print("Length of array: ",len(arr))
+print("Elements to be shifted: ",elements_to_shift)
+print("Initial array:",arr)
+
+NoR= int(input("Enter no. of rotations: "))
+for i in range(NoR):
+    a = arr[0]
+    for j in range(elements_to_shift):
+        arr[j]=arr[j+1]
+    print(f"Rotated Array in rotation {i+1}:", arr)
+    arr[-1]=a
+print("Rotated array:",arr)
+
